@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Shop</title>
+    
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to our E-commerce Shop</h1>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'products:product_list' %}">Products</a></li>
+                <li><a href="{% url 'products:category_list' %}">Categories</a></li>
+                <li><a href="{% url 'cart:cart' %}">View Cart</a></li>
+                <li><a href="{% url 'orders:order_history' %}">Order History</a></li>
+                
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                    
+                <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                </form>
+
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'bizzapp/base.html' %}
+
+{% block content %}
+
+<h2>Checkout</h2>
+
+
+<ul>
+    {% for product, quantity in cart_items %}
+        <li>{{ product.name }} -Price sh:  {{product.price}} - Quantity: {{ quantity }}</li>
+    {% endfor %}
+</ul>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Order</button>
+</form>
+
+{% endblock %}

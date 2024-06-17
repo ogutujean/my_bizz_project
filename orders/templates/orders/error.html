@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #245179;
+            padding: 20px;
+            text-align: center;
+        }
+        .error-container {
+            background: #7a6868;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        h1 {
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        
+        <h1>Something Went Wrong</h1>
+        <p>{{ message }}</p>
+        <P>Return to Products</P>
+
+        <a href="{% url 'products:product_list' %}">Products</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% extends 'bizzapp/base.html' %}
+
+{% block content %}
+    <h2>Order History</h2>
+    <ul>
+        {% for order in orders %}
+            <li>{{ order.quantity }} of {{ order.product.name }} ordered on {{ order.ordered_date }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
