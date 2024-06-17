@@ -1,7 +1,7 @@
 {% extends 'bizzapp/base.html' %}
 
 {% block content %}
-    <h2>Product List</h2>
+    <h2>Product Catalogue</h2>
 
     <form method="get" action="{% url 'products:product_list' %}" id="product_list">
         <input type="text" name="q" placeholder="search products..." />
