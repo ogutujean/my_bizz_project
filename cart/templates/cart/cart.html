@@ -4,7 +4,8 @@
     <h2>Your Cart</h2>
     <ul>
         {% for item in cart_items %}
-        <li>{{ item.quantity }} of {{ item.product.name }} - ${{ item.product.price }}</li>
+       
+        <li>{{ item.product.name }} - Quantity: {{ item.quantity }} - Price: @ sh{{ item.product.price}}</li>
         {% endfor %}
     </ul>
 

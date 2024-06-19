@@ -1,10 +1,17 @@
+
 {% extends 'bizzapp/base.html' %}
 
 {% block content %}
     <h2>Order History</h2>
-    <ul>
-        {% for order in orders %}
-            <li>{{ order.quantity }} of {{ order.product.name }} ordered on {{ order.ordered_date }}</li>
-        {% endfor %}
-    </ul>
+    {% if orders %}
+        <ul>
+            {% for order in orders %}
+                <li>
+                    {{ order.quantity }} of {{ order.product.name }} ordered on {{ order.ordered_date|date:"D, d M Y"}}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no past orders.</p>
+    {% endif %}
 {% endblock %}

@@ -14,6 +14,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products' , on_delete=models.CASCADE)
     stock = models.PositiveIntegerField( default=0 )
     available = models.BooleanField(default=True)
+    
 
     def __str__(self):
         return self.name
