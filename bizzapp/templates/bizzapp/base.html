@@ -8,10 +8,11 @@
     {% load static %}
 
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico'%}" />
 </head>
 <body>
     <header>
-        <h1>Welcome to our E-commerce Shop</h1>
+        <h1>Welcome to my E-commerce Shop</h1>
         <nav>
             <ul>
                 {% if user.is_authenticated %}
@@ -38,5 +39,34 @@
         {% block content %}
         {% endblock %}
     </main>
+
+
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 text-center text-md-left">
+                    <h3 class="text-white">Contact Us</h3>
+                    <p class="text-white m-0">Email: <a href="mailto:jeanbaron011@gmail.com" class="text-white">jeanbaron011@gmail.com</a></p>
+                    <p class="text-white">Phone: +254728428764</p>
+                </div>
+
+                <div class="col-md-4 text-center">
+                    <h3 class="text-white">Follow Us</h3>
+                    <a href="https://facebook.com/jeanbaron" target="_blank" rel="noopener" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/jean_baron_" target="_blank" rel="noopener" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/ogutujean" target="_blank" rel="noopener" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/in/jeanogutu" target="_blank" rel="noopener" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                
+
+                <div class="col-md-4 text-center text-md-right">
+                    <p class="text-white m-0">Copyright &copy; JEAN APP 2024</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    
 </body>
 </html>
