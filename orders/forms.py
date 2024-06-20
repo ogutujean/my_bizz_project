@@ -4,4 +4,4 @@ from .models import ShippingAddress
 class ShippingForm(forms.ModelForm):
     class Meta:
         model = ShippingAddress
-        fields = ['address', 'city', 'postal_code', 'country']
+        fields = [ 'address','city', 'postal_code', 'country']

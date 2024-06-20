@@ -37,8 +37,8 @@ def checkout(request):
 
     if request.method == 'POST':
 
-        # shipping_form = ShippingForm(request.POST)
-        # if shipping_form.is_valid():
+        shipping_form = ShippingForm(request.POST)
+        if shipping_form.is_valid():
 
          with transaction.atomic():  # Ensures atomicity of the transaction
             order = Order.objects.create(user=request.user, total=0)
@@ -54,7 +54,8 @@ def checkout(request):
             if total == 0:  # Check if total is zero or if no items were added
                 messages.error(request, 'No available products to checkout')
                 return redirect('orders:checkout')
-
+            
+            order.shipping_address = shipping_form.cleaned_data['address']
             order.total = total
             order.save()
 
@@ -62,5 +63,17 @@ def checkout(request):
             request.session['cart'] = {}
             messages.success(request, 'Your order has been placed successfully.')
             return redirect('orders:confirm', order_id=order.id)
+         
 
-    return render(request, 'orders/checkout.html', {'cart_items': cart_view})
+        else:
+            # If shipping form is not valid, render the form again with errors
+            return render(request, 'orders/checkout.html', {
+                'cart_items': cart_view, 
+                'shipping_form': shipping_form
+            })
+    else:
+        # Provide an unbound form if not POST request
+        shipping_form = ShippingForm()
+
+
+    return render(request, 'orders/checkout.html', {'cart_items': cart_view, 'shipping_form': shipping_form})

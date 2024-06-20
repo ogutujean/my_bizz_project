@@ -4,17 +4,17 @@
 
 <h2>Checkout</h2>
 
-<ul>
+<ol>
     {% for product, quantity in cart_items.items %}
         <li>{{ product.name }} - Price @ sh: {{ product.price }}, Quantity: {{ quantity }}</li>
     {% empty %}
         <li>Your cart is empty.</li>
     {% endfor %}
-</ul>
+</ol>
 
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ shipping_form.as_p }}
     <button type="submit">Submit Order</button>
 </form>
 
