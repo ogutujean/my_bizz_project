@@ -49,17 +49,61 @@ h2 {
 }
 
 footer{
-    text-align: center;
     padding: 1rem;
     background-color: #333;
     color: #d5c1c1;
-    padding: 1rem;
 
 }
 
 
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+}
+
+
+.text-md-left, .text-center, .text-md-right {
+    flex: 1;              
+}
+
+
+
+.text-center{
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+
+}
+
+.text-md-left{
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+.text-md-right{
+    text-align: right;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+.social-links a {
+    margin: 0 20px; /* Adds horizontal space between icons */
+    display: inline-block; /* Ensures links are aligned correctly */
+}
+
 .messages {
     margin-top: 20px;
+
 }
 
 .messages div {
